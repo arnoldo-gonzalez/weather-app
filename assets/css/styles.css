@@ -1,0 +1,472 @@
+:root {
+    --green: #68904D;
+    --dark-green: #14471E;
+    --gray : #C8D2D1;
+    --yellow: #EE9B01;
+    --orange: #DA6A00;
+    --red: #ff0000;
+}
+
+
+@font-face {
+    font-family: 'DM Sans';
+    src: url("/assets/fonts/DMSans-VariableFont_opsz,wght.ttf");
+}
+
+
+* {
+    font-family: 'DM Sans', Helvetica, Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/*
+==========================================
+--------------- HEADER -------------------
+==========================================
+*/
+
+.header, .header__container--p, .header__container--h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.header__container--h1 {
+    padding: 30px 0;
+}
+
+.header__h1 {
+    margin: 0;
+}
+
+.header__container--p {
+    padding: 20px;
+    background-color: var(--green);
+}
+
+.header__p {
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+}
+
+
+/*
+==========================================
+----------------- MODAL ------------------
+==========================================
+*/
+
+.modal {
+    position: fixed;
+    z-index: 100;
+    top: 20px;
+    left: 0;
+    right: 0;
+    display: grid;
+    grid-template-areas:
+    "text text"
+    "agree agreent";
+    justify-items: center;
+    gap: 15px;
+    margin: auto;
+    width: 90%;
+    max-width: 1000px;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: var(--orange);
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal__p {
+    grid-area: text;
+}
+
+.modal__btn {
+    align-self: flex-start;
+    display: block;
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #fff;
+    transition: background .2s ease-in-out, color .2s ease-in-out;
+}
+
+.modal__btn:nth-of-type(1) {
+    grid-area: agree;
+    background-color: var(--green);
+}
+
+.modal__btn:nth-of-type(2) {
+    grid-area: agreent;
+    background-color: var(--red);
+}
+
+.modal__btn:hover {
+    color: #000;
+    background-color: #fff;
+}
+
+/*
+==========================================
+----------------- MAIN -------------------
+==========================================
+*/
+.main, .fetch {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main {
+    flex-grow: 1;
+    background-color: var(--gray);
+    padding: 20px;
+    gap: 30px;
+}
+
+.fetch {
+    gap: 5px;
+}
+
+.fetch__p {
+    font-style: italic;
+}
+
+.fetch__form {
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+}
+
+.fetch__label {
+    padding-left: 8px;
+}
+
+.fetch__input {
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 3px solid var(--dark-green);
+}
+
+.fetch__container {
+    position: relative;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px 5px;
+}
+
+.fetch__btn {
+    position: relative;
+    outline: none;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 15px;
+    color: #fff;
+    overflow: hidden;
+    transition: background-color .15s ease-in-out;
+}
+
+.fetch__btn.loading {
+    pointer-events: none;
+}
+
+.fetch__btn.loading::before {
+    content: "";
+    inset: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.fetch__btn.loading::after {
+    content: "";
+    inset: 0;
+    position: absolute;
+    display: block;
+    margin: auto;
+    height: 15px;
+    width: 15px;
+    border: 3px solid var(--gray);
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.fetch__btn:nth-of-type(1), .fetch__btn:nth-of-type(1).loading::before {
+    background-color: var(--dark-green);
+}
+
+.fetch__btn:nth-of-type(1):hover {
+    cursor: pointer;
+    background-color: var(--green);
+}
+
+.fetch__btn:nth-of-type(2), .fetch__btn:nth-of-type(2).loading::before {
+    background-color: var(--orange);
+}
+
+.fetch__btn:nth-of-type(2):hover {
+    cursor: pointer;
+    background-color: var(--yellow);
+}
+
+/*
+==========================================
+----------------- DATA -------------------
+==========================================
+*/
+
+.data {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-direction: column;
+}
+
+.data__h3 {
+    font-size: 1.3rem;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 20px;
+    background-color: var(--green);
+}
+
+.data__h4 {
+    font-size: 1.1rem;
+}
+
+.data__informations {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 300px));
+    gap: 20px;
+    width: 90%;
+    max-width: 1000px;
+}
+
+.data__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 4px;
+    height: 100%;
+    width: 100%;
+}
+
+.data__info--h5 {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    color: var(--dark-green);
+    padding-left: 10px;
+    width: 100%;
+}
+
+.data__info--p {
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    width: 100%;
+    background-color: var(--dark-green);
+}
+
+
+
+/*
+==========================================
+---------------- LEGEND ------------------
+==========================================
+*/
+
+.legend, .legend__info {
+    display: flex;
+    flex-direction: column;
+}
+
+.legend {
+    gap: 10px;
+    width: 90vw;
+    max-width: 800px;
+}
+
+.legend__h3 {
+    font-size: 1.5rem;
+    align-self: center;
+}
+
+.legend__info {
+    gap: 5px;
+    padding: 10px 15px;
+}
+
+.legend__h4 {
+    font-size: 1.1rem;
+    padding-left: 10px;
+    font-weight: bold;
+    color: var(--dark-green);
+}
+
+.legend__p {
+    padding: 8px 10px;
+    border-radius: 10px;
+    background-color: var(--green);
+}
+
+
+/*
+==========================================
+---------------- ERRORS ------------------
+==========================================
+*/
+
+.footer {
+    display: flex;
+    align-items: center;
+    min-height: 100px;
+    background-color: var(--orange);
+}
+
+.footer__address {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100%;   
+}
+
+.footer__h4, .footer__ul {
+    margin: 0 auto;
+}
+
+.footer__ul, .footer__li a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer__ul {
+    list-style: none;
+}
+
+.footer__li a {
+    text-decoration: none;
+    padding: 8px 13px;
+    color: #fff;
+    background-color: #000;
+    border-radius: 10px;
+    transition: background .2s ease-in-out;
+}
+
+.footer__li a:hover {
+    background-color: var(--dark-green);
+}
+
+.footer__li a i {
+    font-size: 1.5rem;
+}
+
+.footer__li:nth-child(2) a i {
+    padding: .15rem;
+    font-size: 1.2rem;
+}
+
+
+/*
+==========================================
+---------------- ERRORS ------------------
+==========================================
+*/
+
+.errors {
+    top: 20px;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.errors__error {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-radius: 15px;
+    border: 3px solid var(--orange);
+    width: 90%;
+    max-width: 500px;
+    background-color: var(--yellow);
+}
+
+.errors__btn {
+    border: none;
+    outline: none;
+    height: 28px;
+    width: 28px;
+    font-size: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--red);
+    background-color: transparent;
+    transition: background .2s ease-in-out, color .2s ease-in-out;
+}
+
+.errors__btn:hover {
+    color: #fff;
+    background-color: var(--red);
+}
+
+
+
+
+/*
+==========================================
+------------------ 404 -------------------
+==========================================
+*/
+
+.notfound {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.notfound__a {
+    font-weight: bold;
+    color: var(--green);
+}
+
+.notfound__a:hover {
+    color: var(--dark-green);
+}
+
+
+

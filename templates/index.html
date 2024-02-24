@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">  
+<head>    
+    <title>Weather App</title>
+    <meta charset="UTF-8">
+    <meta name="title" content="Título de la WEB">
+    <meta name="description" content="Descripción de la WEB">
+    <link href="/assets/css/normalize.css" rel="stylesheet">
+    <link href="/assets/css/styles.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/5a47573fb9.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="header__container--h1">
+            <h1 class="header__h1">Weather App</h1>
+        </div>
+        <div class="header__container--p">
+            <p class="header__p">Check the current weather from the cache (fast) or check the newest information (more slow)</p>
+        </div>
+    </header>
+    <div id="errors-place" class="errors"></div>
+    <main class="main">
+        <section class="fetch">
+            <h2 class="fetch__h2">Fetch the weather data from:</h2>
+            <p class="fetch__p">Note: To fetch the newest data also update the cache</p>
+            <form class="fetch__form">
+                <label for="location-input" class="fetch__label">Enter your location:</label>
+                <input id="location-input" class="fetch__input" type="text" placeholder="Maracay">
+            </form>
+            <div class="fetch__container">
+                <button id="fetch-cache" class="fetch__btn">Cache</button>
+                <button id="fetch-newest" class="fetch__btn">Newest</button>
+            </div>
+        </section>
+        <section class="data">
+            <h3 class="data__h3">Weather Data</h3>
+            <h4 class="data__h4">Response Time: <span id="response-time">Click a button</span></h4>
+            <div id="data-place" class="data__informations">
+                <div class="data__info"><h5 class="data__info--h5">Info last update</h5><p class="data__info--p">Click one of the buttons above</p></div>
+                <div class="data__info"><h5 class="data__info--h5">Temperature</h5><p class="data__info--p">Click one of the buttons above</p></div>
+                <div class="data__info"><h5 class="data__info--h5">Precipitation Probability</h5><p class="data__info--p">Click one of the buttons above</p></div>
+                <div class="data__info"><h5 class="data__info--h5">Temperature Apparent</h5><p class="data__info--p">Click one of the buttons above</p></div>
+                <div class="data__info"><h5 class="data__info--h5">Humidity</h5><p class="data__info--p">Click one of the buttons above</p></div>
+                <div class="data__info"><h5 class="data__info--h5">Wind Speed</h5><p class="data__info--p">Click one of the buttons above</p></div>
+            </div>
+        </section>
+        <section class="legend">
+            <h3 class="legend__h3">Info about the weather data</h3>
+            <article class="legend__info">
+                <h4 class="legend__h4">Info last update:</h4>
+                <p class="legend__p">This is the date (in format YYYY-MM-DD HH:MM) of the last update of the data, is this date is too old, is highly recomend to fetch newest data.</p>
+            </article>
+
+            <article class="legend__info">
+                <h4 class="legend__h4">Temperature:</h4>
+                <p class="legend__p">The "real" temperature measurement (at 2m).</p>
+            </article>
+
+            <article class="legend__info">
+                <h4 class="legend__h4">Temperature Apparent:</h4>
+                <p class="legend__p">The temperature equivalent perceived by humans, caused by the combined effects of air temperature, relative humidity, and wind speed (at 2m). Also known as "feels like".</p>
+            </article>
+
+            <article class="legend__info">
+                <h4 class="legend__h4">Precipitation Probability:</h4>
+                <p class="legend__p">Probability of precipitation represents the chance of >0.0254 cm (0.01 in.) of liquid equivalent precipitation at a radius surrounding a point location over a specific period of time.</p>
+            </article>
+
+            <article class="legend__info">
+                <h4 class="legend__h4">Humidity</h4>
+                <p class="legend__p">The concentration of water vapor present in the air.</p>
+            </article>
+
+            <article class="legend__info">
+                <h4 class="legend__h4">Wind Speed</h4>
+                <p class="legend__p">The fundamental atmospheric quantity caused by air moving from high to low pressure, usually due to changes in temperature (at 10m).</p>
+            </article>
+        </section>
+    </main>
+    <footer class="footer">
+        <address class="footer__address">
+            <h4 class="footer__h4">Page made by Arnoldo González</h4>
+            <ul class="footer__ul">
+                <li class="footer__li"><a target="_blank" href="https://github.com/arnoldo-gonzalez">Go to my Github<i class="fa-brands fa-github"></i></a></li>
+                <li class="footer__li"><a target="_blank" href="https://github.com/arnoldo-gonzalez/weather-app">Go to the Source Code<i class="fa-solid fa-code"></i></a></li>
+            </ul>
+        </address>
+    </footer>
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>
